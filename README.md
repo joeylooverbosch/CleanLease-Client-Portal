@@ -31,7 +31,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="https://www.cleanlease.com/wp-content/themes/cleanlease/images/logo.svg" alt="Logo" width="80" height="80">
+    <img src="https://www.cleanlease.com/wp-content/themes/cleanlease/images/logo.svg" alt="Logo" width="300">
   </a>
 
   <h3 align="center">Best-README-Template</h3>
