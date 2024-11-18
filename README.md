@@ -18,15 +18,6 @@
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
-
-
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
@@ -34,12 +25,10 @@
     <img src="https://www.cleanlease.com/wp-content/themes/cleanlease/images/logo.svg" alt="Logo" width="300">
   </a>
 
-  <h3 align="center">Best-README-Template</h3>
+  <h3 align="center">CleanLease Client Portal</h3>
 
   <p align="center">
-    An awesome README template to jumpstart your projects!
-    <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
+    Fontys Hogescholen Internship Assignment By: Joey van de Looverbosch
     <br />
     <br />
     <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
