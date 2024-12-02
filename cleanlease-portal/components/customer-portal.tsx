@@ -18,72 +18,10 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 
+
 export default function CustomerPortal() {
   return (
     <div className="min-h-screen bg-gray-100">
-      <header className="border-b bg-white">
-        <div className="container flex h-16 items-center justify-between px-4">
-          <Link href="/" className="flex items-center space-x-2">
-            <Image
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-hOrLcbLZSnsAmevObVstEN6lxXlMcI.png"
-              alt="CleanLease Logo"
-              width={150}
-              height={40}
-              className="h-10 w-auto"
-            />
-          </Link>
-          <nav className="hidden space-x-6 md:flex">
-            <Link href="/" className="text-sm font-medium text-gray-700 hover:text-gray-900">
-              Home
-            </Link>
-            <Link href="/facturen" className="text-sm font-medium text-gray-700 hover:text-gray-900">
-              Facturen
-            </Link>
-            <Link href="/help" className="text-sm font-medium text-gray-700 hover:text-gray-900">
-              Help
-            </Link>
-          </nav>
-          <div className="flex items-center space-x-4">
-            <Button variant="ghost" size="icon">
-              <Bell className="h-5 w-5" />
-              <span className="sr-only">Notifications</span>
-            </Button>
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="sm" className="w-[100px]">
-                  <Globe className="mr-2 h-4 w-4" />
-                  NLD
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent>
-                <DropdownMenuItem>
-                  <span className="mr-2">🇳🇱</span> NLD
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <span className="mr-2">🇬🇧</span> ENG
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <span className="mr-2">🇫🇷</span> FRA
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="icon">
-                  <User className="h-5 w-5" />
-                  <span className="sr-only">User account</span>
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end">
-                <DropdownMenuItem>Profiel</DropdownMenuItem>
-                <DropdownMenuItem>Instellingen</DropdownMenuItem>
-                <DropdownMenuItem>Uitloggen</DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-          </div>
-        </div>
-      </header>
-
       <main>
         <section className="relative bg-gradient-to-br from-blue-50 to-gray-100 overflow-hidden">
           <div className="absolute inset-0">
@@ -178,7 +116,7 @@ export default function CustomerPortal() {
                         <label htmlFor="subject" className="block text-sm font-medium text-gray-700">
                           Onderwerp
                         </label>
-                        <Input id="subject" className="mt-1" placeholder="Kort omschrijf uw klacht" />
+                        <Input id="subject" className="mt-1" placeholder="Omschrijf uw klacht" />
                       </div>
                       <div>
                         <label htmlFor="description" className="block text-sm font-medium text-gray-700">
@@ -365,9 +303,14 @@ export default function CustomerPortal() {
                     ))}
                   </TableBody>
                 </Table>
+                <Link 
+                 href="/meldingen" 
+                className="inline-flex items-center text-sm hover:text-blue-800 mb-6"
+                >
                 <Button variant="outline" className="mt-4 w-full">
                   Alle meldingen bekijken
                 </Button>
+                </Link>
               </CardContent>
             </Card>
 
@@ -502,7 +445,7 @@ export default function CustomerPortal() {
         </section>
       </main>
 
-      <footer className="bg-gray-100 border-t py-8 mt-12">
+      {/* <footer className="bg-gray-100 border-t py-8 mt-12">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-sm text-gray-600 mb-4 md:mb-0">
@@ -516,7 +459,7 @@ export default function CustomerPortal() {
             </nav>
           </div>
         </div>
-      </footer>
+      </footer> */}
     </div>
   )
 }
