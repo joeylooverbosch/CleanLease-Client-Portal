@@ -87,6 +87,9 @@ export default function CustomerPortal() {
                   <AlertTriangle className="mr-2 h-5 w-5 text-yellow-500" />
                   Melding indienen
                 </CardTitle>
+                <p className="text-sm text-gray-600 mt-2">
+                 Selecteer een categorie en vul uw melding in.
+                </p>
               </CardHeader>
               <CardContent>
                 <Tabs defaultValue="complaint" className="w-full">
@@ -256,6 +259,12 @@ export default function CustomerPortal() {
                       Gebruik het formulier &apos;Melding indienen&apos; en selecteer de optie &apos;Vermissing&apos;. Geef zoveel mogelijk details over het artikel, zoals maat en kleur. U kunt ook een foto toevoegen als u die heeft.
                     </AccordionContent>
                   </AccordionItem>
+                  <AccordionItem value="item-4">
+                    <AccordionTrigger>Ik wil na overlijden kleding schenken.</AccordionTrigger>
+                    <AccordionContent>
+                    Als kleding na het overlijden aan andere bewoners wordt geschonken, is het belangrijk dat eventuele barcodes of chips van de kledingstukken worden verwijderd. Als deze labels niet worden verwijderd, kan het systeem de kleding blijven registreren, waardoor er onbedoeld facturen worden gestuurd. Zorg er daarom voor dat de kleding wordt aangepast of vraag bij de instelling of wij u hierbij kunnen helpen. Mocht u vragen hebben, dan staan we graag voor u klaar!
+                    </AccordionContent>
+                  </AccordionItem>
                 </Accordion>
                 <Button variant="outline" className="mt-4 w-full">
                   Alle vragen bekijken
@@ -344,10 +353,12 @@ export default function CustomerPortal() {
                           </span>
                         </TableCell>
                         <TableCell>
-                          <Button variant="ghost" size="sm">
-                            <Download className="h-4 w-4" />
-                            <span className="sr-only">Download invoice</span>
-                          </Button>
+                        <Button variant="ghost" size="sm">
+                            <a href="/facturen/factuur.pdf" download>
+                                <Download className="h-4 w-4" />
+                                <span className="sr-only">Download invoice</span>
+                            </a>
+                            </Button>
                         </TableCell>
                       </TableRow>
                     ))}
