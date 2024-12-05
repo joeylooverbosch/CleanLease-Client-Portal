@@ -23,61 +23,75 @@ export default function CustomerPortal() {
   return (
     <div className="min-h-screen bg-gray-100">
       <main>
-        <section className="relative bg-gradient-to-br from-blue-50 to-gray-100 overflow-hidden">
-          <div className="absolute inset-0">
-            <svg
-              className="absolute bottom-0 left-0 right-0 top-0 h-full w-full"
-              preserveAspectRatio="xMidYMid slice"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 1440 560"
-            >
-              <g clipPath="url(#clip0_1_2)">
-                <path
-                  fill="rgba(59, 130, 246, 0.1)"
-                  d="M1440 560H0V0C240 53.3 480 106.7 720 106.7C960 106.7 1200 53.3 1440 0V560Z"
-                />
-                <path
-                  fill="rgba(59, 130, 246, 0.05)"
-                  d="M1440 560H0V140C240 193.3 480 246.7 720 246.7C960 246.7 1200 193.3 1440 140V560Z"
-                />
-              </g>
-              <defs>
-                <clipPath id="clip0_1_2">
-                  <rect width="1440" height="560" fill="white" />
-                </clipPath>
-              </defs>
-            </svg>
-          </div>
-          <div className="relative mx-auto max-w-screen-xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
-            <div className="max-w-2xl">
-              <h1 className="mb-4 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl">
-                Welkom op het CleanLease Klantenportaal
-              </h1>
-              <p className="mb-8 text-xl text-gray-700">
-                Uw persoonlijke serviceportaal voor het beheren van uw was, facturen en ondersteuning.
-              </p>
-              <div className="flex flex-wrap gap-4 mb-8">
-                <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white">
-                  <AlertTriangle className="mr-2 h-4 w-4" />
-                  Meld een probleem
-                </Button>
-                <Button size="lg" variant="outline" className="bg-white">
-                  <Truck className="mr-2 h-4 w-4" />
-                  Volg uw bestelling
-                </Button>
-              </div>
-              <div className="relative">
-                <Search className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400" />
-                <Input
-                  className="pl-10 pr-4 py-2 w-full"
-                  type="search"
-                  placeholder="Zoek in facturen, veelgestelde vragen of meld een probleem..."
-                />
-              </div>
-            </div>
-          </div>
-        </section>
+      <section className="relative bg-gradient-to-br from-blue-50 to-gray-100 overflow-hidden">
+  {/* Background image */}
+  <div
+    className="absolute inset-0 bg-cover bg-center"
+    style={{ backgroundImage: 'url(/images/banner-img.jpg)',
+      backgroundPosition: 'center 30%',
+     }}
+  ></div>
+  
+  {/* White overlay */}
+  <div className="absolute inset-0 bg-white opacity-75"></div>
+  
+  <div className="absolute inset-0">
+    <svg
+      className="absolute bottom-0 left-0 right-0 top-0 h-full w-full"
+      preserveAspectRatio="xMidYMid slice"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 1440 560"
+    >
+      <g clipPath="url(#clip0_1_2)">
+        <path
+          fill="rgba(59, 130, 246, 0.1)"
+          d="M1440 560H0V0C240 53.3 480 106.7 720 106.7C960 106.7 1200 53.3 1440 0V560Z"
+        />
+        <path
+          fill="rgba(59, 130, 246, 0.05)"
+          d="M1440 560H0V140C240 193.3 480 246.7 720 246.7C960 246.7 1200 193.3 1440 140V560Z"
+        />
+      </g>
+      <defs>
+        <clipPath id="clip0_1_2">
+          <rect width="1440" height="560" fill="white" />
+        </clipPath>
+      </defs>
+    </svg>
+  </div>
+
+  <div className="relative mx-auto max-w-screen-xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
+    <div className="max-w-2xl">
+      <h1 className="mb-4 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl">
+        Welkom op het CleanLease Klantenportaal
+      </h1>
+      <p className="mb-8 text-xl text-gray-700">
+        Uw persoonlijke serviceportaal voor het beheren van uw was, facturen en ondersteuning.
+      </p>
+      <div className="flex flex-wrap gap-4 mb-8">
+        <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white">
+          <AlertTriangle className="mr-2 h-4 w-4" />
+          Meld een probleem
+        </Button>
+        <Button size="lg" variant="outline" className="bg-white">
+          <Truck className="mr-2 h-4 w-4" />
+          Volg uw was
+        </Button>
+      </div>
+      <div className="relative">
+        <Search className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400" />
+        <Input
+          className="pl-10 pr-4 py-2 w-full"
+          type="search"
+          placeholder="Zoek in facturen, veelgestelde vragen of meld een probleem..."
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+
 
         <section className="container px-4 py-8">
           <div className="grid gap-6 md:grid-cols-3">
@@ -146,17 +160,28 @@ export default function CustomerPortal() {
                         <Input id="item-description" className="mt-1" placeholder="Bijv. blauwe handdoek, maat L" />
                       </div>
                       <div>
-                        <label htmlFor="item-type" className="block text-sm font-medium text-gray-700">
-                          Type artikel
-                        </label>
-                        <select
-                          id="item-type"
-                          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
-                        >
-                          <option>Gemerkt (geregistreerd)</option>
-                          <option>Ongemerkt (niet geregistreerd)</option>
-                        </select>
-                      </div>
+                      <label htmlFor="item-type" className="block text-sm font-medium text-gray-700 flex items-center">
+                        Type artikel
+                        <div className="relative group ml-2">
+                          <span className="absolute left-0 top-full mt-1 bg-gray-700 text-white text-xs rounded-md px-3 py-2 opacity-0 group-hover:opacity-90 transition-opacity z-10 w-64">
+                            "Gemerkt" betekent dat het artikel geregistreerd is in ons systeem.
+                          </span>
+                          <div
+                            className="w-3 h-3 flex items-center justify-center rounded-full bg-black text-white text-[10px] font-bold cursor-pointer"
+                          >
+                            i
+                          </div>
+                        </div>
+                      </label>
+                      <select
+                        id="item-type"
+                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
+                      >
+                        <option>Gemerkt (geregistreerd)</option>
+                        <option>Ongemerkt (niet geregistreerd)</option>
+                      </select>
+                    </div>
+
                       <div>
                         <label htmlFor="missing-photo" className="block text-sm font-medium text-gray-700">
                           Foto van het vermiste artikel (optioneel)
@@ -440,7 +465,7 @@ export default function CustomerPortal() {
                 </div>
                 <hr className="border-gray-200" />
                 <div>
-                  <Link href="#" className="text-blue-600 hover:underline">Servicevoorwaarden bekijken</Link>
+                  <Link href="/servicevoorwaarden" className="text-blue-600 hover:underline">Servicevoorwaarden bekijken</Link>
                 </div>
                 <hr className="border-gray-200" />
                 <div>

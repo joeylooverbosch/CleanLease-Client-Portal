@@ -14,7 +14,7 @@ const Header: React.FC = () => {
   return (
     <header className="border-b bg-white">
       <div className="container flex h-16 items-center justify-between px-4">
-        <Link href="/" className="flex items-center space-x-2">
+        <Link href="/b2c" className="flex items-center space-x-2">
           <Image
             src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-hOrLcbLZSnsAmevObVstEN6lxXlMcI.png"
             alt="CleanLease Logo"
@@ -24,7 +24,7 @@ const Header: React.FC = () => {
           />
         </Link>
         <nav className="hidden space-x-6 md:flex">
-          <Link href="/" className="text-sm font-medium text-gray-700 hover:text-gray-900">
+          <Link href="/b2c" className="text-sm font-medium text-gray-700 hover:text-gray-900">
             Home
           </Link>
           <Link href="/facturen" className="text-sm font-medium text-gray-700 hover:text-gray-900">
@@ -66,7 +66,9 @@ const Header: React.FC = () => {
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
+            <Link href="/account-overzicht" className="text-sm font-medium text-gray-700 hover:text-gray-900">
               <DropdownMenuItem>Profiel</DropdownMenuItem>
+              </Link>
               <DropdownMenuItem>Instellingen</DropdownMenuItem>
               <DropdownMenuItem>Uitloggen</DropdownMenuItem>
             </DropdownMenuContent>
