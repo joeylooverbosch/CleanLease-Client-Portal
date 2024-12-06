@@ -1,5 +1,7 @@
 import '@/app/globals.css'
 import type { Metadata } from 'next'
+import { ToastProvider } from "@/components/ui/toast"
+import { Toaster } from "@/components/ui/toaster"
 
 export const metadata: Metadata = {
   title: 'CleanLease Klantenportaal',
@@ -13,7 +15,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="nl">
-      <body>{children}</body>
+      <body>
+        <ToastProvider>
+          {children}
+          <Toaster />
+        </ToastProvider>
+      </body>
     </html>
   )
 }

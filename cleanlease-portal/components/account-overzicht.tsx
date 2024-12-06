@@ -7,19 +7,37 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Switch } from "@/components/ui/switch"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { User, Bell, Truck, FileText, AlertTriangle, Calendar, Phone, Mail, Home, Info, Settings, Eye, XCircle } from 'lucide-react'
+import { User, Bell, Truck, FileText, AlertTriangle, Calendar, Phone, Mail, Home, Info, Settings, Eye, XCircle, Save } from 'lucide-react'
 import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { useToast } from "@/components/ui/use-toast"
+import { ToastAction } from "@/components/ui/toast"
 
 export default function AccountOverview() {
-  const [isEditing, setIsEditing] = useState(false)
+  const [isEditing, setIsEditing] = useState<boolean>(false)
+  const { toast } = useToast()
+
+  const handleButtonClick = (action: string) => {
+    toast({
+      title: "Actie voltooid",
+      description: `De actie "${action}" is succesvol uitgevoerd.`,
+    })
+  }
+
+  const handleSave = (type: 'preferences' | 'info') => {
+    toast({
+      title: type === 'preferences' ? "Voorkeuren opgeslagen" : "Gegevens bijgewerkt",
+      description: type === 'preferences' ? "Uw notificatie-instellingen zijn succesvol opgeslagen." : "Uw persoonlijke gegevens zijn succesvol bijgewerkt.",
+      action: <ToastAction altText="Sluiten">Sluiten</ToastAction>,
+    })
+  }
 
   return (
     <div className="container mx-auto py-10">
       <h1 className="text-3xl font-bold mb-6">Account Overzicht</h1>
       
       <Tabs defaultValue="overview" className="space-y-4">
-        <TabsList>
+        <TabsList className="grid w-full grid-cols-3">
           <TabsTrigger value="overview">Overzicht</TabsTrigger>
           <TabsTrigger value="notifications">Notificaties</TabsTrigger>
           <TabsTrigger value="laundry">Wasservice</TabsTrigger>
@@ -35,37 +53,56 @@ export default function AccountOverview() {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                {isEditing ? (
-                  <form className="space-y-4">
-                    <div className="grid grid-cols-2 gap-4">
-                      <div className="space-y-2">
-                        <Label htmlFor="firstName">Voornaam</Label>
-                        <Input id="firstName" defaultValue="Jan" />
+                <div className="space-y-4">
+                  <div className="flex items-center">
+                    <User className="mr-2 h-4 w-4" />
+                    {isEditing ? (
+                      <div className="flex space-x-2 w-full">
+                        <Input defaultValue="Jan" placeholder="Voornaam" />
+                        <Input defaultValue="de Vries" placeholder="Achternaam" />
                       </div>
-                      <div className="space-y-2">
-                        <Label htmlFor="lastName">Achternaam</Label>
-                        <Input id="lastName" defaultValue="de Vries" />
-                      </div>
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="email">E-mailadres</Label>
-                      <Input id="email" type="email" defaultValue="jan.devries@email.nl" />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="phone">Telefoonnummer</Label>
-                      <Input id="phone" type="tel" defaultValue="06-12345678" />
-                    </div>
-                    <Button type="submit" onClick={() => setIsEditing(false)}>Opslaan</Button>
-                  </form>
-                ) : (
-                  <div className="space-y-4">
-                    <p className="flex items-center"><User className="mr-2 h-4 w-4" /> Jan de Vries</p>
-                    <p className="flex items-center"><Mail className="mr-2 h-4 w-4" /> jan.devries@email.nl</p>
-                    <p className="flex items-center"><Phone className="mr-2 h-4 w-4" /> 06-12345678</p>
-                    <p className="flex items-center"><Home className="mr-2 h-4 w-4" /> Zorginstelling De Boog, Kamer 23-A</p>
-                    <Button onClick={() => setIsEditing(true)}>Contactgegevens Bijwerken</Button>
+                    ) : (
+                      <span>Jan de Vries</span>
+                    )}
                   </div>
-                )}
+                  <div className="flex items-center">
+                    <Mail className="mr-2 h-4 w-4" />
+                    {isEditing ? (
+                      <Input type="email" defaultValue="jan.devries@email.nl" placeholder="E-mailadres" className="w-full" />
+                    ) : (
+                      <span>jan.devries@email.nl</span>
+                    )}
+                  </div>
+                  <div className="flex items-center">
+                    <Phone className="mr-2 h-4 w-4" />
+                    {isEditing ? (
+                      <Input type="tel" defaultValue="06-12345678" placeholder="Telefoonnummer" className="w-full" />
+                    ) : (
+                      <span>06-12345678</span>
+                    )}
+                  </div>
+                  <div className="flex items-center">
+                    <Home className="mr-2 h-4 w-4" />
+                    {isEditing ? (
+                      <div className="flex space-x-2 w-full">
+                        <Input defaultValue="De Boog" placeholder="Zorginstelling" className="w-1/2" />
+                        <Input defaultValue="23-A" placeholder="Kamernummer" className="w-1/2" />
+                      </div>
+                    ) : (
+                      <span>Zorginstelling De Boog, Kamer 23-A</span>
+                    )}
+                  </div>
+                  <Button onClick={() => {
+                    if (isEditing) {
+                      handleButtonClick("Persoonlijke gegevens opgeslagen");
+                    } else {
+                      handleButtonClick("Gegevens bewerken gestart");
+                    }
+                    setIsEditing(!isEditing);
+                  }}>
+                    {isEditing ? 'Wijzigingen Opslaan' : 'Gegevens Bewerken'}
+                  </Button>
+                </div>
               </CardContent>
             </Card>
 
@@ -80,7 +117,7 @@ export default function AccountOverview() {
                 <p className="flex items-center"><Calendar className="mr-2 h-4 w-4" /> Klant sinds: 1 januari 2023</p>
                 <p className="flex items-center"><FileText className="mr-2 h-4 w-4" /> Klantnummer: CL-12345</p>
                 <p className="flex items-center"><Settings className="mr-2 h-4 w-4" /> Servicepakket: Volledig Verzorgd</p>
-                <Button variant="outline">Servicepakket Details Bekijken</Button>
+                <Button variant="outline" onClick={() => handleButtonClick("Servicepakket Details Bekijken")}>Servicepakket Details Bekijken</Button>
               </CardContent>
             </Card>
 
@@ -103,7 +140,7 @@ export default function AccountOverview() {
                         <Truck className="mr-2 h-4 w-4" /> Afleveren: 15:00 - 17:00
                       </p>
                     </div>
-                    <Button variant="outline" className="mt-4">Details Bekijken</Button>
+                    <Button variant="outline" onClick={() => handleButtonClick("Details Bekijken")}>Details Bekijken</Button>
                   </div>
                 </CardContent>
               </Card>
@@ -137,10 +174,10 @@ export default function AccountOverview() {
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="endDate">Gewenste einddatum</Label>
-                      <Input type="date" id="endDate" />
+                      <Input type="date" id="endDate" className="w-full" />
                     </div>
                     <p className="text-sm text-muted-foreground">Let op: er geldt een opzegtermijn van 30 dagen.</p>
-                    <Button type="submit" variant="destructive">
+                    <Button type="submit" variant="destructive" onClick={() => handleButtonClick("Service beëindiging aangevraagd")}>
                       <XCircle className="mr-2 h-4 w-4" />
                       Bevestig Beëindiging
                     </Button>
@@ -152,53 +189,87 @@ export default function AccountOverview() {
         </TabsContent>
 
         <TabsContent value="notifications">
-          <Card>
-            <CardHeader>
-              <CardTitle className="text-xl flex items-center">
-                <Bell className="mr-2 h-5 w-5" />
-                Notificatie Voorkeuren
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-6">
-                <div className="flex items-center justify-between">
-                  <div className="space-y-0.5">
-                    <Label className="text-base">E-mailnotificaties</Label>
-                    <p className="text-sm text-muted-foreground">Ontvang updates via e-mail</p>
-                  </div>
-                  <Switch />
-                </div>
-                <div className="flex items-center justify-between">
-                  <div className="space-y-0.5">
-                    <Label className="text-base">SMS-notificaties</Label>
-                    <p className="text-sm text-muted-foreground">Ontvang updates via SMS</p>
-                  </div>
-                  <Switch />
-                </div>
-                <div className="space-y-2">
-                  <Label>Notificaties voor:</Label>
-                  <div className="space-y-2">
-                    <div className="flex items-center space-x-2">
-                      <Switch id="wasPickup" />
-                      <Label htmlFor="wasPickup">Was ophalen herinnering</Label>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <Switch id="wasDelivery" />
-                      <Label htmlFor="wasDelivery">Was afleveren melding</Label>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <Switch id="invoices" />
-                      <Label htmlFor="invoices">Nieuwe facturen beschikbaar</Label>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <Switch id="serviceUpdates" />
-                      <Label htmlFor="serviceUpdates">Service updates en wijzigingen</Label>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
+          <div className="grid gap-6 md:grid-cols-2">
+  <Card>
+    <CardHeader>
+      <CardTitle className="text-xl flex items-center">
+        <Bell className="mr-2 h-5 w-5" />
+        Notificatie Voorkeuren
+      </CardTitle>
+    </CardHeader>
+    <CardContent>
+      <div className="space-y-6">
+        <div className="flex items-center justify-between">
+          <div className="space-y-0.5">
+            <Label className="text-base">E-mailnotificaties</Label>
+            <p className="text-sm text-muted-foreground">Ontvang updates via e-mail</p>
+          </div>
+          <Switch />
+        </div>
+        <div className="flex items-center justify-between">
+          <div className="space-y-0.5">
+            <Label className="text-base">SMS-notificaties</Label>
+            <p className="text-sm text-muted-foreground">Ontvang updates via SMS</p>
+          </div>
+          <Switch />
+        </div>
+        <div className="space-y-2">
+          <Label>Notificaties voor:</Label>
+          <div className="space-y-2">
+            <div className="flex items-center space-x-2">
+              <Switch id="wasPickup" />
+              <Label htmlFor="wasPickup">Was ophalen herinnering</Label>
+            </div>
+            <div className="flex items-center space-x-2">
+              <Switch id="wasDelivery" />
+              <Label htmlFor="wasDelivery">Was afleveren melding</Label>
+            </div>
+            <div className="flex items-center space-x-2">
+              <Switch id="invoices" />
+              <Label htmlFor="invoices">Nieuwe facturen beschikbaar</Label>
+            </div>
+            <div className="flex items-center space-x-2">
+              <Switch id="serviceUpdates" />
+              <Label htmlFor="serviceUpdates">Service updates en wijzigingen</Label>
+            </div>
+          </div>
+        </div>
+        <Button onClick={() => handleButtonClick("Notificatie voorkeuren opgeslagen")} className="w-full">
+          <Save className="mr-2 h-4 w-4" />
+          Voorkeuren Opslaan
+        </Button>
+      </div>
+    </CardContent>
+  </Card>
+
+  <Card>
+    <CardHeader>
+      <CardTitle className="text-xl flex items-center">
+        <Info className="mr-2 h-5 w-5" />
+        Voorbeeld Notificaties
+      </CardTitle>
+    </CardHeader>
+    <CardContent>
+      <div className="space-y-4">
+        <div>
+          <h3 className="font-semibold mb-2">SMS Voorbeeld</h3>
+          <div className="bg-gray-100 p-3 rounded-md">
+            <p className="text-sm">CleanLease: Uw was wordt morgen tussen 09:00 en 11:00 opgehaald. Zorg ervoor dat uw wasgoed klaar staat. Vragen? Bel 0800-1234567</p>
+          </div>
+        </div>
+        <div>
+          <h3 className="font-semibold mb-2">E-mail Voorbeeld</h3>
+          <div className="bg-gray-100 p-3 rounded-md">
+            <p className="text-sm font-semibold">Onderwerp: Uw CleanLease wasservice voor morgen</p>
+            <p className="text-sm mt-2">Beste heer/mevrouw De Vries,</p>
+            <p className="text-sm mt-2">Wij herinneren u eraan dat uw was morgen tussen 09:00 en 11:00 wordt opgehaald. Zorgt u ervoor dat uw wasgoed klaar staat?</p>
+            <p className="text-sm mt-2">Met vriendelijke groet,<br />Het CleanLease Team</p>
+          </div>
+        </div>
+      </div>
+    </CardContent>
+  </Card>
+</div>
         </TabsContent>
 
         <TabsContent value="laundry">
@@ -216,7 +287,7 @@ export default function AccountOverview() {
                 <p className="mb-4">Verwachte afleverdag: <strong>Woensdag</strong></p>
                 <p>Tijdvenster voor afleveren: <strong>15:00 - 17:00</strong></p>
                 <div className="mt-4">
-                  <Button variant="outline">Bekijk Volledige Kalender</Button>
+                  <Button variant="outline" onClick={() => handleButtonClick("Bekijk Volledige Kalender")}>Bekijk Volledige Kalender</Button>
                 </div>
               </CardContent>
             </Card>
@@ -246,7 +317,7 @@ export default function AccountOverview() {
                   </li>
                 </ul>
                 <div className="mt-4">
-                  <Button variant="outline">Alle Meldingen Bekijken</Button>
+                  <Button variant="outline" onClick={() => handleButtonClick("Alle Meldingen Bekijken")}>Alle Meldingen Bekijken</Button>
                 </div>
               </CardContent>
             </Card>
@@ -267,7 +338,7 @@ export default function AccountOverview() {
                     </div>
                     <div className="flex items-center">
                       <span className="mr-4 text-green-600 font-medium">€75,00</span>
-                      <Button variant="outline" size="sm">Bekijk</Button>
+                      <Button variant="outline" size="sm" onClick={() => handleButtonClick("Factuur #INV-2024-11 bekijken")}>Bekijk</Button>
                     </div>
                   </li>
                   <li className="flex items-center justify-between">
@@ -277,12 +348,12 @@ export default function AccountOverview() {
                     </div>
                     <div className="flex items-center">
                       <span className="mr-4 text-green-600 font-medium">€72,50</span>
-                      <Button variant="outline" size="sm">Bekijk</Button>
+                      <Button variant="outline" size="sm" onClick={() => handleButtonClick("Factuur #INV-2024-10 bekijken")}>Bekijk</Button>
                     </div>
                   </li>
                 </ul>
                 <div className="mt-4">
-                  <Button variant="outline">Alle Facturen Bekijken</Button>
+                  <Button variant="outline" onClick={() => handleButtonClick("Alle Facturen Bekijken")}>Alle Facturen Bekijken</Button>
                 </div>
               </CardContent>
             </Card>
