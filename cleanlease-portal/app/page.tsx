@@ -7,9 +7,10 @@ export default function Home() {
  
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <Login />
-      <Footer />
+
+      {/* <Footer /> */}
     </>
   );
 }

@@ -262,7 +262,7 @@ export default function AccountOverview() {
           <div className="bg-gray-100 p-3 rounded-md">
             <p className="text-sm font-semibold">Onderwerp: Uw CleanLease wasservice voor morgen</p>
             <p className="text-sm mt-2">Beste heer/mevrouw De Vries,</p>
-            <p className="text-sm mt-2">Wij herinneren u eraan dat uw was morgen tussen 09:00 en 11:00 wordt opgehaald. Zorgt u ervoor dat uw wasgoed klaar staat?</p>
+            <p className="text-sm mt-2">Wij herinneren u eraan dat uw was morgen tussen 09:00 en 11:00 wordt opgehaald. Zorgt u ervoor dat uw wasgoed klaar staat in de stippelzakken?</p>
             <p className="text-sm mt-2">Met vriendelijke groet,<br />Het CleanLease Team</p>
           </div>
         </div>
