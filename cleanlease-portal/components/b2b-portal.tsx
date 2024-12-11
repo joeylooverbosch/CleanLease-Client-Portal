@@ -4,9 +4,9 @@ import React from 'react'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
-import Image from "next/image";
+import Image from "next/image"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Bell, Download, FileText, HelpCircle, Menu, Plus, Search, Settings, Truck, User } from 'lucide-react'
+import { Bell, FileText, HelpCircle, Menu, Plus, Search, Truck, User } from 'lucide-react'
 import Link from "next/link"
 import { Bar, BarChart, Line, LineChart, ResponsiveContainer, XAxis, YAxis } from "recharts"
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
@@ -93,7 +93,13 @@ export default function B2BDashboard() {
                 </button>
                 <div className="flex-shrink-0 flex items-center">
                   {/* Mobile logo */}
-                  <img className="block h-8 w-auto md:hidden" src="/placeholder.svg?height=32&width=32" alt="CleanLease" />
+                  <Image
+                    src="/placeholder.svg"
+                    alt="CleanLease"
+                    width={32}
+                    height={32}
+                    className="block h-8 w-auto md:hidden"
+                  />
                 </div>
               </div>
               <div className="flex items-center">
@@ -110,7 +116,13 @@ export default function B2BDashboard() {
                   <div className="ml-3 relative">
                     <div>
                       <button className="bg-white rounded-full flex text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500" id="user-menu" aria-haspopup="true">
-                        <img className="h-8 w-8 rounded-full" src="/placeholder.svg?height=32&width=32" alt="" />
+                        <Image
+                          src="/placeholder.svg"
+                          alt="User"
+                          width={32}
+                          height={32}
+                          className="h-8 w-8 rounded-full"
+                        />
                       </button>
                     </div>
                   </div>

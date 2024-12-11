@@ -3,14 +3,15 @@
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import Link from "next/link"
 import Image from "next/image"
 import { Building2, User, Loader2, WashingMachine, Shirt, Droplets, Wind, ShirtIcon as TShirt, FootprintsIcon as Socks, AnvilIcon as Iron } from 'lucide-react'
+import { useRouter } from 'next/navigation'
 
 export default function Component() {
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const [view, setView] = useState<"select" | "login">("select")
   const [accountType, setAccountType] = useState<"b2c" | "b2b" | null>(null)
+  const router = useRouter()
 
   const handleAccountSelect = (type: "b2c" | "b2b") => {
     setAccountType(type)
@@ -20,6 +21,17 @@ export default function Component() {
   const handleBack = () => {
     setView("select")
     setAccountType(null)
+  }
+
+  const handleLogin = () => {
+    setIsLoading(true)
+    // Simulate login process
+    setTimeout(() => {
+      setIsLoading(false)
+      if (accountType) {
+        router.push(`/${accountType}`)
+      }
+    }, 1500)
   }
 
   return (
@@ -179,12 +191,15 @@ export default function Component() {
                       </a>
                     </div>
                     
-                    <Button className="w-full" size="lg" disabled={isLoading}>
-                    <Link href={`/${accountType}`}>
+                    <Button 
+                      className="w-full" 
+                      size="lg" 
+                      onClick={handleLogin}
+                      disabled={isLoading}
+                    >
                       {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-                      Inloggen
-                    </Link>
-                  </Button>
+                      {isLoading ? 'Inloggen...' : 'Inloggen'}
+                    </Button>
                     
                     <div className="text-center">
                       <span className="text-sm text-gray-500">

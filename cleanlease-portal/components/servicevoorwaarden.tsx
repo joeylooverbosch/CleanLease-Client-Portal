@@ -1,6 +1,6 @@
 'use client'
 
-import { Info, FileText } from 'lucide-react'
+import { Info } from 'lucide-react'
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
 export default function ServiceVoorwaarden() {

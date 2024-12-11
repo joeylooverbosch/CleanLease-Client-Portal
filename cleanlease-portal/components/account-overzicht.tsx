@@ -11,7 +11,6 @@ import { User, Bell, Truck, FileText, AlertTriangle, Calendar, Phone, Mail, Home
 import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { useToast } from "@/components/ui/use-toast"
-import { ToastAction } from "@/components/ui/toast"
 
 export default function AccountOverview() {
   const [isEditing, setIsEditing] = useState<boolean>(false)
@@ -21,14 +20,6 @@ export default function AccountOverview() {
     toast({
       title: "Actie voltooid",
       description: `De actie "${action}" is succesvol uitgevoerd.`,
-    })
-  }
-
-  const handleSave = (type: 'preferences' | 'info') => {
-    toast({
-      title: type === 'preferences' ? "Voorkeuren opgeslagen" : "Gegevens bijgewerkt",
-      description: type === 'preferences' ? "Uw notificatie-instellingen zijn succesvol opgeslagen." : "Uw persoonlijke gegevens zijn succesvol bijgewerkt.",
-      action: <ToastAction altText="Sluiten">Sluiten</ToastAction>,
     })
   }
 
@@ -190,86 +181,86 @@ export default function AccountOverview() {
 
         <TabsContent value="notifications">
           <div className="grid gap-6 md:grid-cols-2">
-  <Card>
-    <CardHeader>
-      <CardTitle className="text-xl flex items-center">
-        <Bell className="mr-2 h-5 w-5" />
-        Notificatie Voorkeuren
-      </CardTitle>
-    </CardHeader>
-    <CardContent>
-      <div className="space-y-6">
-        <div className="flex items-center justify-between">
-          <div className="space-y-0.5">
-            <Label className="text-base">E-mailnotificaties</Label>
-            <p className="text-sm text-muted-foreground">Ontvang updates via e-mail</p>
-          </div>
-          <Switch />
-        </div>
-        <div className="flex items-center justify-between">
-          <div className="space-y-0.5">
-            <Label className="text-base">SMS-notificaties</Label>
-            <p className="text-sm text-muted-foreground">Ontvang updates via SMS</p>
-          </div>
-          <Switch />
-        </div>
-        <div className="space-y-2">
-          <Label>Notificaties voor:</Label>
-          <div className="space-y-2">
-            <div className="flex items-center space-x-2">
-              <Switch id="wasPickup" />
-              <Label htmlFor="wasPickup">Was ophalen herinnering</Label>
-            </div>
-            <div className="flex items-center space-x-2">
-              <Switch id="wasDelivery" />
-              <Label htmlFor="wasDelivery">Was afleveren melding</Label>
-            </div>
-            <div className="flex items-center space-x-2">
-              <Switch id="invoices" />
-              <Label htmlFor="invoices">Nieuwe facturen beschikbaar</Label>
-            </div>
-            <div className="flex items-center space-x-2">
-              <Switch id="serviceUpdates" />
-              <Label htmlFor="serviceUpdates">Service updates en wijzigingen</Label>
-            </div>
-          </div>
-        </div>
-        <Button onClick={() => handleButtonClick("Notificatie voorkeuren opgeslagen")} className="w-full">
-          <Save className="mr-2 h-4 w-4" />
-          Voorkeuren Opslaan
-        </Button>
-      </div>
-    </CardContent>
-  </Card>
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-xl flex items-center">
+                  <Bell className="mr-2 h-5 w-5" />
+                  Notificatie Voorkeuren
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-6">
+                  <div className="flex items-center justify-between">
+                    <div className="space-y-0.5">
+                      <Label className="text-base">E-mailnotificaties</Label>
+                      <p className="text-sm text-muted-foreground">Ontvang updates via e-mail</p>
+                    </div>
+                    <Switch />
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <div className="space-y-0.5">
+                      <Label className="text-base">SMS-notificaties</Label>
+                      <p className="text-sm text-muted-foreground">Ontvang updates via SMS</p>
+                    </div>
+                    <Switch />
+                  </div>
+                  <div className="space-y-2">
+                    <Label>Notificaties voor:</Label>
+                    <div className="space-y-2">
+                      <div className="flex items-center space-x-2">
+                        <Switch id="wasPickup" />
+                        <Label htmlFor="wasPickup">Was ophalen herinnering</Label>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <Switch id="wasDelivery" />
+                        <Label htmlFor="wasDelivery">Was afleveren melding</Label>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <Switch id="invoices" />
+                        <Label htmlFor="invoices">Nieuwe facturen beschikbaar</Label>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <Switch id="serviceUpdates" />
+                        <Label htmlFor="serviceUpdates">Service updates en wijzigingen</Label>
+                      </div>
+                    </div>
+                  </div>
+                  <Button onClick={() => handleButtonClick("Notificatie voorkeuren opgeslagen")} className="w-full">
+                    <Save className="mr-2 h-4 w-4" />
+                    Voorkeuren Opslaan
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
 
-  <Card>
-    <CardHeader>
-      <CardTitle className="text-xl flex items-center">
-        <Info className="mr-2 h-5 w-5" />
-        Voorbeeld Notificaties
-      </CardTitle>
-    </CardHeader>
-    <CardContent>
-      <div className="space-y-4">
-        <div>
-          <h3 className="font-semibold mb-2">SMS Voorbeeld</h3>
-          <div className="bg-gray-100 p-3 rounded-md">
-            <p className="text-sm">CleanLease: Uw was wordt morgen tussen 09:00 en 11:00 opgehaald. Zorg ervoor dat uw wasgoed klaar staat. Vragen? Bel 0800-1234567</p>
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-xl flex items-center">
+                  <Info className="mr-2 h-5 w-5" />
+                  Voorbeeld Notificaties
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-4">
+                  <div>
+                    <h3 className="font-semibold mb-2">SMS Voorbeeld</h3>
+                    <div className="bg-gray-100 p-3 rounded-md">
+                      <p className="text-sm">CleanLease: Uw was wordt morgen tussen 09:00 en 11:00 opgehaald. Zorg ervoor dat uw wasgoed klaar staat. Vragen? Bel 0800-1234567</p>
+                    </div>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-2">E-mail Voorbeeld</h3>
+                    <div className="bg-gray-100 p-3 rounded-md">
+                      <p className="text-sm font-semibold">Onderwerp: Uw CleanLease wasservice voor morgen</p>
+                      <p className="text-sm mt-2">Beste heer/mevrouw De Vries,</p>
+                      <p className="text-sm mt-2">Wij herinneren u eraan dat uw was morgen tussen 09:00 en 11:00 wordt opgehaald. Zorgt u ervoor dat uw wasgoed klaar staat in de stippelzakken?</p>
+                      <p className="text-sm mt-2">Met vriendelijke groet,<br />Het CleanLease Team</p>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           </div>
-        </div>
-        <div>
-          <h3 className="font-semibold mb-2">E-mail Voorbeeld</h3>
-          <div className="bg-gray-100 p-3 rounded-md">
-            <p className="text-sm font-semibold">Onderwerp: Uw CleanLease wasservice voor morgen</p>
-            <p className="text-sm mt-2">Beste heer/mevrouw De Vries,</p>
-            <p className="text-sm mt-2">Wij herinneren u eraan dat uw was morgen tussen 09:00 en 11:00 wordt opgehaald. Zorgt u ervoor dat uw wasgoed klaar staat in de stippelzakken?</p>
-            <p className="text-sm mt-2">Met vriendelijke groet,<br />Het CleanLease Team</p>
-          </div>
-        </div>
-      </div>
-    </CardContent>
-  </Card>
-</div>
         </TabsContent>
 
         <TabsContent value="laundry">
