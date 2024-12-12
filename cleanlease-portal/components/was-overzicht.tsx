@@ -6,23 +6,25 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Calendar, Clock, Shirt, Loader2, PhoneCall, AlertCircle, CheckCircle2, MapPin } from 'lucide-react'
 
+
+// Kan later dynamisch opgehaald worden via API/MySQL
 const currentLaundryStatus = {
   status: "In behandeling",
   items: "2 sets bedlinnen, 5 handdoeken, 3 kledingstukken",
-  pickupDate: "2023-05-20",
-  estimatedDelivery: "2023-05-22",
+  pickupDate: "2024-12-18",
+  estimatedDelivery: "2024-12-22",
   location: "Utrecht, Nederland",
 }
 
 const upcomingSchedule = [
-  { date: "2023-05-25", type: "Ophalen", time: "10:00 - 12:00" },
-  { date: "2023-05-27", type: "Afleveren", time: "14:00 - 16:00" },
+  { date: "2025-01-03", type: "Ophalen", time: "10:00 - 12:00" },
+  { date: "2025-01-10", type: "Afleveren", time: "14:00 - 16:00" },
 ]
 
 const recentHistory = [
-  { id: 1, date: "2023-05-15", status: "Afgeleverd", items: "3 sets bedlinnen, 7 handdoeken" },
-  { id: 2, date: "2023-05-08", status: "Afgeleverd", items: "4 kledingstukken, 2 sets bedlinnen" },
-  { id: 3, date: "2023-05-01", status: "Afgeleverd", items: "6 handdoeken, 5 kledingstukken" },
+  { id: 1, date: "2024-12-01", status: "Afgeleverd", items: "3 sets bedlinnen, 7 handdoeken" },
+  { id: 2, date: "2024-11-24", status: "Afgeleverd", items: "4 kledingstukken, 2 sets bedlinnen" },
+  { id: 3, date: "2024-11-17", status: "Afgeleverd", items: "6 handdoeken, 5 kledingstukken" },
 ]
 
 export default function LaundryServiceTracking() {
@@ -146,10 +148,10 @@ export default function LaundryServiceTracking() {
 
         <Card className="md:col-span-1">
           <CardHeader>
-            <CardTitle className="text-2xl text-gray-900">Contact Wasserij Service</CardTitle>
+            <CardTitle className="text-2xl text-gray-900">Contact Klantenservice</CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="mb-4">Heeft u vragen of opmerkingen? Neem contact op met onze wasserij service.</p>
+            <p className="mb-4">Heeft u vragen of opmerkingen? Neem contact op met onze klantenservice.</p>
             <Button onClick={handleContactService} disabled={isLoading} className="w-full">
               {isLoading ? (
                 <>

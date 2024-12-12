@@ -27,11 +27,20 @@ const Header: React.FC = () => {
           <Link href="/b2c" className="text-sm font-medium text-gray-700 hover:text-gray-900">
             Home
           </Link>
+          <Link href="/was-overzicht" className="text-sm font-medium text-gray-700 hover:text-gray-900">
+            Mijn Was
+          </Link>
+          <Link href="/meldingen" className="text-sm font-medium text-gray-700 hover:text-gray-900">
+            Meldingen
+          </Link>
+          <Link href="/facturen" className="text-sm font-medium text-gray-700 hover:text-gray-900">
+            Documenten
+          </Link>
           <Link href="/facturen" className="text-sm font-medium text-gray-700 hover:text-gray-900">
             Facturen
           </Link>
           <Link href="/help" className="text-sm font-medium text-gray-700 hover:text-gray-900">
-            Help
+            Contact
           </Link>
         </nav>
         <div className="flex items-center space-x-4">
@@ -66,11 +75,13 @@ const Header: React.FC = () => {
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
-            <Link href="/account-overzicht" className="text-sm font-medium text-gray-700 hover:text-gray-900">
+              <Link href="/account-overzicht" className="text-sm font-medium text-gray-700 hover:text-gray-900">
               <DropdownMenuItem>Profiel</DropdownMenuItem>
               </Link>
               <DropdownMenuItem>Instellingen</DropdownMenuItem>
+              <Link href="/" className="text-sm font-medium text-gray-700 hover:text-gray-900">
               <DropdownMenuItem>Uitloggen</DropdownMenuItem>
+              </Link>
             </DropdownMenuContent>
           </DropdownMenu>
         </div>

@@ -15,17 +15,13 @@ export function Footer() {
           {/* Column 1: Addresses */}
           <div className="space-y-8">
             {/* Logo */}
-            <svg
-              className="w-48 h-12 mb-8"
-              viewBox="0 0 200 50"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <rect width="200" height="50" fill="#FFFFFF" />
-              <text x="10" y="30" fill="#000000" fontSize="20" fontFamily="Arial, sans-serif">
-                CleanLease Logo
-              </text>
-            </svg>
+            <Image
+            src="/images/cleanlease-logo-white.svg"
+            alt="CleanLease Logo"
+            width={200}
+            height={60}
+            className="w-60"
+          />
 
             <div>
               <h3 className="font-bold mb-2">Hoofdkantoor Nederland</h3>
@@ -61,7 +57,7 @@ export function Footer() {
               <Link href="/care" className="block hover:underline mb-2">Care</Link>
               <Link href="/cure" className="block hover:underline mb-2">Cure</Link>
               <Link href="/leisure" className="block hover:underline mb-2">Leisure</Link>
-              <Link href="/mijn-waslijn" className="block hover:underline mb-2">Mijn Waslijn</Link>
+              <Link href="https://mijnwas.nl/" target="_blank" className="block hover:underline mb-2">Mijn Waslijn</Link>
             </div>
             <div>
               <Link href="/over-cleanlease" className="block hover:underline mb-2">Over Cleanlease</Link>

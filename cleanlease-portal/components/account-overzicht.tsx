@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import Link from "next/link";
 import { Switch } from "@/components/ui/switch"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { User, Bell, Truck, FileText, AlertTriangle, Calendar, Phone, Mail, Home, Info, Settings, Eye, XCircle, Save } from 'lucide-react'
@@ -308,8 +309,11 @@ export default function AccountOverview() {
                   </li>
                 </ul>
                 <div className="mt-4">
+                <Link href="/meldingen" className="text-sm font-medium text-gray-700 hover:text-gray-900">
                   <Button variant="outline" onClick={() => handleButtonClick("Alle Meldingen Bekijken")}>Alle Meldingen Bekijken</Button>
+                </Link>
                 </div>
+             
               </CardContent>
             </Card>
 
