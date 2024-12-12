@@ -429,9 +429,14 @@ export default function CustomerPortal() {
                   </div>
                   <p className="mt-4 text-sm text-gray-600">Status: In verwerking bij Ergon</p>
                 </div>
+                <Link 
+                 href="/was-overzicht" 
+                className="inline-flex items-center text-sm hover:text-blue-800 mb-6"
+                >
                 <Button variant="outline" className="w-full">
                   Alle bestellingen bekijken
                 </Button>
+                </Link>
               </CardContent>
             </Card>
 
@@ -444,11 +449,11 @@ export default function CustomerPortal() {
               </CardHeader>
               <CardContent className="space-y-4">
                 <div>
-                  <Link href="#" className="text-blue-600 hover:underline">Gegevens bijwerken</Link>
+                  <Link href="/account-overzicht" className="text-blue-600 hover:underline">Gegevens bijwerken</Link>
                 </div>
                 <hr className="border-gray-200" />
                 <div>
-                  <Link href="#" className="text-blue-600 hover:underline">Notificaties beheren</Link>
+                  <Link href="/account-overzicht" className="text-blue-600 hover:underline">Notificaties beheren</Link>
                 </div>
                 <hr className="border-gray-200" />
                 <div>
@@ -456,7 +461,7 @@ export default function CustomerPortal() {
                 </div>
                 <hr className="border-gray-200" />
                 <div>
-                  <Link href="#" className="text-blue-600 hover:underline">Dienst afmelden</Link>
+                  <Link href="/account-overzicht" className="text-blue-600 hover:underline">Dienst afmelden</Link>
                 </div>
                 <Button variant="outline" className="w-full">
                   <Phone className="mr-2 h-4 w-4" />
