@@ -34,9 +34,6 @@ const Header: React.FC = () => {
             Meldingen
           </Link>
           <Link href="/facturen" className="text-sm font-medium text-gray-700 hover:text-gray-900">
-            Documenten
-          </Link>
-          <Link href="/facturen" className="text-sm font-medium text-gray-700 hover:text-gray-900">
             Facturen
           </Link>
           <Link href="/help" className="text-sm font-medium text-gray-700 hover:text-gray-900">
@@ -78,7 +75,9 @@ const Header: React.FC = () => {
               <Link href="/account-overzicht" className="text-sm font-medium text-gray-700 hover:text-gray-900">
               <DropdownMenuItem>Profiel</DropdownMenuItem>
               </Link>
+              <Link href="/settings" className="text-sm font-medium text-gray-700 hover:text-gray-900">
               <DropdownMenuItem>Instellingen</DropdownMenuItem>
+              </Link>
               <Link href="/" className="text-sm font-medium text-gray-700 hover:text-gray-900">
               <DropdownMenuItem>Uitloggen</DropdownMenuItem>
               </Link>

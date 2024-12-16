@@ -1,15 +1,14 @@
-import MeldingDetail from '@/components/melding-detail';
+
+import Facturen from '@/components/facturen';
 import Header from '@/components/Header';
 import { Footer } from '@/components/Footer';
 
-export default function MeldingDetailPage() {
+export default function Home() {
+ 
   return (
     <>
       <Header />
-      
-   
-        <MeldingDetail />
-    
+      <Facturen />
       <Footer />
     </>
   );

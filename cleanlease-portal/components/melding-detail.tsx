@@ -9,9 +9,12 @@ import { AlertTriangle } from 'lucide-react'
 
 export default function MeldingDetail() {
   return (
-    
+<div className="bg-gray-100">
     <div className="container mx-auto py-6">
-
+    <div className="mb-8">
+          <h1 className="text-4xl font-bold mb-4">Overzicht Meldingen</h1>
+          <p className="text-gray-600">Bekijk en beheer uw meldingen.</p>
+      </div>
 
       <div className="grid gap-6 md:grid-cols-3">
         <div className="md:col-span-2">
@@ -134,6 +137,7 @@ export default function MeldingDetail() {
           </div>
         </div>
       </div>
+    </div>
     </div>
   )
 }

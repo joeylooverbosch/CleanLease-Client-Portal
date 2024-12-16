@@ -39,9 +39,13 @@ export default function LaundryServiceTracking() {
   }
 
   return (
+    <div className="bg-gray-100">
     <div className="container mx-auto p-4 space-y-6">
       {/* <h1 className="text-3xl font-bold text-gray-800">Wasserij Service Overzicht</h1> */}
-
+      <div className="mb-8">
+          <h1 className="text-4xl font-bold mb-4">Overzicht Was</h1>
+          <p className="text-gray-600">Bekijk en beheer uw was.</p>
+      </div>
       <div className="grid gap-6 md:grid-cols-2">
         <Card className="md:col-span-1">
           <CardHeader>
@@ -79,9 +83,15 @@ export default function LaundryServiceTracking() {
             <CardTitle className="text-2xl text-gray-900">Locatie van Uw Was</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="aspect-video rounded-md overflow-hidden bg-gray-100 flex items-center justify-center">
-              <p className="text-gray-500">Kaart niet beschikbaar</p>
-            </div>
+          <div className="google-map-code">
+            <iframe
+                src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=De%20Schakel%2030%20Eindhoven+()&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+                width="600"
+                height="450"
+                style={{ border: 0 }}
+                aria-hidden="false"
+            />
+        </div>
           </CardContent>
         </Card>
       </div>
@@ -168,6 +178,7 @@ export default function LaundryServiceTracking() {
           </CardContent>
         </Card>
       </div>
+    </div>
     </div>
   )
 }

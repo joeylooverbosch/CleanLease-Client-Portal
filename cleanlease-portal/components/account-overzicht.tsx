@@ -25,14 +25,15 @@ export default function AccountOverview() {
   }
 
   return (
+    <div className="bg-gray-100">
     <div className="container mx-auto py-10">
       <h1 className="text-3xl font-bold mb-6">Account Overzicht</h1>
       
       <Tabs defaultValue="overview" className="space-y-4">
         <TabsList className="grid w-full grid-cols-3">
-          <TabsTrigger value="overview">Overzicht</TabsTrigger>
-          <TabsTrigger value="notifications">Notificaties</TabsTrigger>
-          <TabsTrigger value="laundry">Wasservice</TabsTrigger>
+          <TabsTrigger className="bg-[#ffffff]" value="overview">Overzicht</TabsTrigger>
+          <TabsTrigger className="bg-[#ffffff] ml-2 mr-2" value="notifications">Notificaties</TabsTrigger>
+          <TabsTrigger className="bg-[#ffffff]" value="laundry">Wasservice</TabsTrigger>
         </TabsList>
 
         <TabsContent value="overview">
@@ -132,7 +133,19 @@ export default function AccountOverview() {
                         <Truck className="mr-2 h-4 w-4" /> Afleveren: 15:00 - 17:00
                       </p>
                     </div>
-                    <Button variant="outline" onClick={() => handleButtonClick("Details Bekijken")}>Details Bekijken</Button>
+                    <Button variant="outline" className="mt-4" onClick={() => handleButtonClick("Details Bekijken")}>Details Bekijken</Button>
+                  </div>
+                  <div className="flex flex-col justify-between mt-4">
+                    <div>
+                      <p className="text-lg font-semibold">Donderdag, 18 December 2024</p>
+                      <p className="text-sm text-muted-foreground flex items-center mt-2">
+                        <Eye className="mr-2 h-4 w-4" /> Ophalen: 09:20 - 11:20
+                      </p>
+                      <p className="text-sm text-muted-foreground flex items-center mt-1">
+                        <Truck className="mr-2 h-4 w-4" /> Afleveren: 16:00 - 17:30
+                      </p>
+                    </div>
+                    <Button variant="outline" className="mt-4" onClick={() => handleButtonClick("Details Bekijken")}>Details Bekijken</Button>
                   </div>
                 </CardContent>
               </Card>
@@ -333,6 +346,7 @@ export default function AccountOverview() {
                     </div>
                     <div className="flex items-center">
                       <span className="mr-4 text-green-600 font-medium">€75,00</span>
+                      {/* Added onclick for later synchronizing with API */}
                       <Button variant="outline" size="sm" onClick={() => handleButtonClick("Factuur #INV-2024-11 bekijken")}>Bekijk</Button>
                     </div>
                   </li>
@@ -355,6 +369,7 @@ export default function AccountOverview() {
           </div>
         </TabsContent>
       </Tabs>
+    </div>
     </div>
   )
 }

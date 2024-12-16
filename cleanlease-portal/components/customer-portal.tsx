@@ -63,10 +63,12 @@ export default function CustomerPortal() {
                   <AlertTriangle className="mr-2 h-4 w-4" />
                   Meld een probleem
                 </Button>
+                <Link href="/was-overzicht" className="inline-flex items-center text-sm hover:text-blue-800 mb-6">
                 <Button size="lg" variant="outline" className="bg-white">
                   <Truck className="mr-2 h-4 w-4" />
                   Volg uw was
                 </Button>
+                </Link>
               </div>
               <div className="relative">
                 <Search className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400" />
@@ -277,10 +279,18 @@ export default function CustomerPortal() {
                     Als kleding na het overlijden aan andere bewoners wordt geschonken, is het belangrijk dat eventuele barcodes of chips van de kledingstukken worden verwijderd. Als deze labels niet worden verwijderd, kan het systeem de kleding blijven registreren, waardoor er onbedoeld facturen worden gestuurd. Zorg er daarom voor dat de kleding wordt aangepast of vraag bij de instelling of wij u hierbij kunnen helpen. Mocht u vragen hebben, dan staan we graag voor u klaar!
                     </AccordionContent>
                   </AccordionItem>
+                  <AccordionItem value="item-5">
+                    <AccordionTrigger>Mijn factuur is hoger dan het plafondbedrag.</AccordionTrigger>
+                    <AccordionContent>
+                    Dit kan verschillende oorzaken hebben, zoals extra services of meer wasgoed dan gebruikelijk. Neem contact op met onze klantenservice voor een gedetailleerde uitleg van uw factuur.
+                    </AccordionContent>
+                  </AccordionItem>
                 </Accordion>
+                <Link href="/faq" className="inline-flex items-center text-sm hover:text-blue-800 mb-6">
                 <Button variant="outline" className="mt-4 w-full">
                   Alle vragen bekijken
                 </Button>
+                </Link>
               </CardContent>
             </Card>
 
@@ -349,6 +359,7 @@ export default function CustomerPortal() {
                       { id: "#992038", date: "19/11/24", items: "14", status: "Afwachting" },
                       { id: "#923058", date: "11/11/24", items: "11", status: "Betaald" },
                       { id: "#923338", date: "07/11/24", items: "21", status: "Betaald" },
+                      { id: "#399300", date: "03/11/24", items: "09", status: "Afwachting" },
                     ].map((invoice) => (
                       <TableRow key={invoice.id}>
                         <TableCell className="py-3">
@@ -376,9 +387,11 @@ export default function CustomerPortal() {
                     ))}
                   </TableBody>
                 </Table>
+                <Link href="/facturen" className="inline-flex items-center text-sm hover:text-blue-800 mb-6">
                 <Button variant="outline" className="mt-4 w-full">
                   Alle facturen bekijken
                 </Button>
+                </Link>
               </CardContent>
             </Card>
 

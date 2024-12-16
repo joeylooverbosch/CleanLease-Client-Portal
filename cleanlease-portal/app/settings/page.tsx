@@ -1,15 +1,12 @@
-import MeldingDetail from '@/components/melding-detail';
+import Settings from '@/components/settings';
 import Header from '@/components/Header';
 import { Footer } from '@/components/Footer';
 
-export default function MeldingDetailPage() {
+export default function ServiceVoorwaardenPage() {
   return (
     <>
       <Header />
-      
-   
-        <MeldingDetail />
-    
+      <Settings />
       <Footer />
     </>
   );

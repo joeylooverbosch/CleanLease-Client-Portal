@@ -1,15 +1,14 @@
-import MeldingDetail from '@/components/melding-detail';
+
+import FAQ from '@/components/faq';
 import Header from '@/components/Header';
 import { Footer } from '@/components/Footer';
 
-export default function MeldingDetailPage() {
+export default function Home() {
+ 
   return (
     <>
       <Header />
-      
-   
-        <MeldingDetail />
-    
+      <FAQ />
       <Footer />
     </>
   );
