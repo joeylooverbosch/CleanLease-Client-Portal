@@ -1,5 +1,6 @@
 
-import B2BPortal from '@/components/b2b-portal';
+import Rapportages from '@/components/b2b/rapportages';
+
 import { Footer } from '@/components/Footer';
 
 export default function Home() {
@@ -7,9 +8,8 @@ export default function Home() {
   return (
     <>
   
-      <B2BPortal />
+      <Rapportages />
       <Footer />
- 
     </>
   );
 }
